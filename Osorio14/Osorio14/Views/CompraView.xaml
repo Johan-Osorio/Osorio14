@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Osorio14.Views.CompraView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Fecha"/>
+            <Entry  Text="{Binding Fecha}" ></Entry>
+            <Label Text="Cliente"/>
+            <Entry Text="{Binding Cliente}"></Entry>
+            <Label Text="Total"/>
+            <Entry Text="{Binding Total}"></Entry>
+            <Label Text="Vendedor"/>
+            <Entry Text="{Binding Vendedor}"></Entry>
+            <Button Text="Save" Command="{Binding InsertCommand}" />
+
+            <Entry Placeholder="Filter"  Text="{Binding Filter}" HorizontalOptions="FillAndExpand"/>
+            <Button Text="ShowByText" Command="{Binding SearchCommand}" />
+            <ListView x:Name="lvPeople" ItemsSource="{Binding Product}" BackgroundColor="{Binding Color}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Fecha}"></Label>
+                                <Label Text="{Binding Cliente}"></Label>
+                                <Label Text="{Binding Total}"></Label>
+                                <Label Text="{Binding Vendedor}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
